@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Card = ({ game }) => {
@@ -27,7 +28,9 @@ const Card = ({ game }) => {
   
          </div> {rating}</p>
     <div className="card-actions justify-center">
-      <button className="btn btn-success text-white btn-sm mt-5 w-full">Explore Details</button>
+        <Link to={`/details/${_id}`}>
+            <button className="btn btn-success text-white btn-sm mt-5 w-full">Explore Details</button>
+        </Link>
     </div>
   </div>
 </div>
