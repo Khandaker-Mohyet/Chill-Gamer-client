@@ -9,6 +9,9 @@ import AddReview from "../Pages/AddReview";
 import MyReviews from "../Pages/MyReviews";
 import GameWatchList from "../Pages/GameWatchList";
 import Details from "../Components/Details";
+import AuthLayout from "../MainLayout/AuthLayout";
+import LogIn from "../Components/LogIn";
+import Register from "../Components/Register";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +45,22 @@ const router = createBrowserRouter([
         path: "/gameWatchList",
         element: <GameWatchList></GameWatchList>
       },
+      
+    ]
+  },
+  {
+    path: "auth",
+    element: <AuthLayout></AuthLayout>,
+    children: [
+      {
+       path: "login",
+       element: <LogIn></LogIn>,
+      },
+      {
+       path: "/auth/register",
+       element: <Register></Register>
+      },
+          
     ]
   },
 ]);
