@@ -42,6 +42,11 @@ const Details = () => {
           <p className="text-base text-gray-600"><strong>Submitted by:</strong> {userName}</p>
           <p className="text-base text-gray-600"><strong>Email:</strong> {email}</p>
         </div>
+        
+        <div className="pt-3">
+          <button className="btn btn-success text-white btn-sm mt-5 w-full">
+            Add to Watch List</button>
+        </div>
       </div>
     </div>
 
