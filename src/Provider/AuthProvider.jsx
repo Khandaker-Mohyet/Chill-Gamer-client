@@ -1,5 +1,5 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import React, { createContext, useState } from 'react';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import React, { createContext, useEffect, useState } from 'react';
 import auth from '../Firebas/firebas.init';
 const provider = new GoogleAuthProvider();
 
@@ -23,14 +23,29 @@ const AuthProvider = ({ children }) => {
   const googleSignIn = () => {
     return signInWithPopup(auth, provider)
   }
+
+  const singInOut = () => {
+    return signOut(auth)
+  }
   
   const gamerInfo = {
     user,
     createUser,
     setUser,
     logInUser,
-    googleSignIn
+    googleSignIn,
+    singInOut
   }
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser)
+      setLoading(false)
+    })
+    return () => {
+      unsubscribe()
+    }
+  },[])
     
   return (
     <AuthContext.Provider value={gamerInfo}>
