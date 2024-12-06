@@ -28,15 +28,11 @@ const Navbar = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
+      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/"}><li><a>Home</a></li></NavLink>
+      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/allReviews"}><li><a>All Reviews</a></li></NavLink>
+      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/addReview"}><li><a>Add Review</a></li></NavLink>
+      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/myReviews"}><li><a>My Reviews</a></li></NavLink>
+      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/gameWatchList"}><li><a>Game Watch List</a></li></NavLink>
       </ul>
     </div>
     <img className="w-20 h-20 my-auto"  src={logo} alt="" />
@@ -44,11 +40,11 @@ const Navbar = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       
-      <NavLink to={"/"}><li><a>Home</a></li></NavLink>
-      <NavLink to={"/allReviews"}><li><a>All Reviews</a></li></NavLink>
-      <NavLink to={"/addReview"}><li><a>Add Review</a></li></NavLink>
-      <NavLink to={"/myReviews"}><li><a>My Reviews</a></li></NavLink>
-      <NavLink to={"/gameWatchList"}><li><a>Game Watch List</a></li></NavLink>
+      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/"}><li><a>Home</a></li></NavLink>
+      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/allReviews"}><li><a>All Reviews</a></li></NavLink>
+      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/addReview"}><li><a>Add Review</a></li></NavLink>
+      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/myReviews"}><li><a>My Reviews</a></li></NavLink>
+      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/gameWatchList"}><li><a>Game Watch List</a></li></NavLink>
     </ul>
   </div>
       <div className="navbar-end">
