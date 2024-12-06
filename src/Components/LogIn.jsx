@@ -11,8 +11,23 @@ const LogIn = () => {
   const handelGoogleSignIn = () => {
     googleSignIn()
     .then(result => {
-            console.log(result.user);
+      console.log(result.user);
+            const email = result?.user?.email;
+            const lastSignInTime = result?.user?.metadata?.lastSignInTime;
+            const logInInfo = {email, lastSignInTime }
+        
+        fetch(`http://localhost:4000/users`, {
+          method: "PATCH",
+          headers: {
+           'content-type':'application/json'
+          },
+          body:JSON.stringify(logInInfo)
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)
             navigate('/');
+        })
             })
             .catch(error => console.log('ERROR', error.message))
   }
