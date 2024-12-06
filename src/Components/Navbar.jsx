@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from '../assets/logo.png'
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import ThemeToggle from "./ThemeToggle";
 
 
 const Navbar = () => {
@@ -45,8 +46,10 @@ const Navbar = () => {
       <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/addReview"}><li><a>Add Review</a></li></NavLink>
       <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/myReviews"}><li><a>My Reviews</a></li></NavLink>
       <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/gameWatchList"}><li><a>Game Watch List</a></li></NavLink>
-    </ul>
-  </div>
+        </ul>
+        
+      </div>
+      <ThemeToggle></ThemeToggle>
       <div className="navbar-end">
           {
           user && user?.email?<button onClick={singInOut} className="btn btn-success font-bold text-white">Log out</button> : <Link to="/auth/Login" className="btn btn-success font-bold text-white">Login</Link>
