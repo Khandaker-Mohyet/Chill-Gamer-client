@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 const UpdateGamer = () => {
 
   const update = useLoaderData()
+
   const { _id, photo, name, description, rating, year, genres, email, userName } = update
 
   const handelUpdateGame = (e) => {
@@ -108,13 +109,13 @@ const UpdateGamer = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name='email' defaultValue={email} placeholder="Your Email" className="input input-bordered" required />
+                            <input type="email" name='email' defaultValue={email} readOnly placeholder="Your Email" className="input input-bordered" required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
                                 <span className="label-text">User Name</span>
                             </label>
-                            <input type="text" name='userName' defaultValue={userName} placeholder="Your Name" className="input input-bordered" required />
+                            <input type="text" name='userName' defaultValue={userName} readOnly placeholder="Your Name" className="input input-bordered" required />
                         </div>
                     </div>
 
