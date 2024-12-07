@@ -7,7 +7,9 @@ import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
 
-  const {user, singInOut} = useContext(AuthContext)
+  const { user, singInOut } = useContext(AuthContext)
+  console.log(user)
+  // console.log(user.photoURL)
   return (
     <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -51,6 +53,9 @@ const Navbar = () => {
       </div>
       <ThemeToggle></ThemeToggle>
       <div className="navbar-end">
+        {/* {
+          user && user.email ? <img className="w-10 h-10 rounded-full" src={user.photoURL} alt="" />: ""
+        } */}
           {
           user && user?.email?<button onClick={singInOut} className="btn btn-success font-bold text-white">Log out</button> : <Link to="/auth/Login" className="btn btn-success font-bold text-white">Login</Link>
         }

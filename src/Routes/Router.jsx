@@ -13,6 +13,8 @@ import Details from "../Components/Details";
 import AuthLayout from "../MainLayout/AuthLayout";
 import LogIn from "../Components/LogIn";
 import Register from "../Components/Register";
+import PrivateRoute from "./PrivateRoute";
+import UpdateGamer from "../Components/UpdateGamer";
 
 const router = createBrowserRouter([
   {
@@ -31,21 +33,28 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <Details></Details>,
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:4000/gamer/${params.id}`)
       },
       {
         path: "/addReview",
-        element: <AddReview></AddReview>
+        element: <PrivateRoute><AddReview></AddReview></PrivateRoute>,
+        
       },
       {
         path: "/myReviews",
-        element: <MyReviews></MyReviews>
+        element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
+        loader:()=>fetch('http://localhost:4000/gamer')
       },
       {
         path: "/gameWatchList",
-        element: <GameWatchList></GameWatchList>
+        element: <PrivateRoute><GameWatchList></GameWatchList></PrivateRoute>
       },
+      {
+        path: "/update/:id",
+        element: <UpdateGamer></UpdateGamer>,
+        loader:({params})=>fetch(`http://localhost:4000/gamer/${params.id}`)
+      }
       
     ]
   },

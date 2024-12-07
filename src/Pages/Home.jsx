@@ -29,7 +29,7 @@ const Home = () => {
         </div>
         <div className="grid md:grid-cols-2 xl:grid-cols-3">
         {
-          loadedGamer.map(game=> <Card key={game._id} game={game}></Card>)
+          loadedGamer.slice(0, 6).map(game=> <Card key={game._id} game={game}></Card>)
         }
       </div>
       </div>
