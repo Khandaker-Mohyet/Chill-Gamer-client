@@ -1,10 +1,17 @@
-
+import { Tooltip } from 'react-tooltip';
 
 const ExtraSection = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-4">
       {/* Extra Section 1: Top Gaming Platforms */}
       <section className="my-8">
+        <a
+         data-tooltip-id="my-tooltip"
+         data-tooltip-content="Enjoy Your Game"
+      >
+       ◕‿‿◕
+       </a>
+       <Tooltip id="my-tooltip" />
         <h2 className="text-3xl font-bold text-center mb-6">Top Gaming Platforms</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Card 1 */}
