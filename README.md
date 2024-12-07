@@ -1,8 +1,12 @@
-# React + Vite
+# Chill Gamer  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site URL:** 
 
-Currently, two official plugins are available:
+## Features  
+- **User-Friendly Interface:** Designed with a simple and responsive layout.  
+- **Dark/Light Theme Toggle:** Allows users to switch themes as per their preference.  
+- **Game Reviews:** Read detailed reviews of popular games.  
+- **Highest Rated Games:** Easily access a list of top-rated games.  
+- **Dynamic & Static Sections:** Various sections to present meaningful information effectively.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Chill Gamer is built to provide you with a chill and engaging game review experience. 
