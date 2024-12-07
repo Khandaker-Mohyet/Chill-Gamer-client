@@ -45,17 +45,21 @@ const Navbar = () => {
       
       <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/"}><li><a>Home</a></li></NavLink>
       <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/allReviews"}><li><a>All Reviews</a></li></NavLink>
-      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/addReview"}><li><a>Add Review</a></li></NavLink>
-      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/myReviews"}><li><a>My Reviews</a></li></NavLink>
-      <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/gameWatchList"}><li><a>Game Watch List</a></li></NavLink>
+      {
+            user && <>
+              <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/addReview"}><li><a>Add Review</a></li></NavLink>
+              <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/myReviews"}><li><a>My Reviews</a></li></NavLink>
+              <NavLink className={({ isActive }) => ` font-bold ${isActive ? 'text-green-600' : 'hover:text-green-600'}`} to={"/gameWatchList"}><li><a>Game Watch List</a></li></NavLink>
+            </>  
+      }
         </ul>
         
       </div>
       <ThemeToggle></ThemeToggle>
       <div className="navbar-end">
-        {/* {
-          user && user.email ? <img className="w-10 h-10 rounded-full" src={user.photoURL} alt="" />: ""
-        } */}
+        {
+          user && user.email ? <img className="w-12 h-12 rounded-full border-2 border-green-600 mr-3" src={user.photoURL} alt="" />: ""
+        }
           {
           user && user?.email?<button onClick={singInOut} className="btn btn-success font-bold text-white">Log out</button> : <Link to="/auth/Login" className="btn btn-success font-bold text-white">Login</Link>
         }

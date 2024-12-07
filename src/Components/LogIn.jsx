@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 
 const LogIn = () => {
@@ -56,11 +57,13 @@ const LogIn = () => {
           .then(data => {
             console.log(data)
             navigate('/');
+            toast.success('Successfully login!')
         })
         
       })
       .catch(error => {
-      console.log(error)
+        console.log(error)
+        toast.error("email and password don't match")
     })
   }
   return (

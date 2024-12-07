@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 
 const Register = () => {
 
-  const { createUser, setUser } = useContext(AuthContext)
+  const { createUser, setUser, updateUserProfile } = useContext(AuthContext)
   const navigate = useNavigate()
 
   const handelRegister = (e) => {
@@ -17,9 +18,18 @@ const Register = () => {
 
     console.log(email, password, name, photo)
 
+    const regex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
+if (!regex.test(password)) {
+  toast.error("Password must contain at least one uppercase and one lowercase letter");
+  return
+}
+
     createUser(email, password)
       .then(result => {
         console.log(result.user)
+
+        updateUserProfile({ displayName: name, photoURL: photo })
+        .then(() => {
         const createdAt = result?.user?.metadata?.creationTime;
         const newUser = { name, email, photo, createdAt }
         fetch('http://localhost:4000/users', {
@@ -27,16 +37,22 @@ const Register = () => {
           headers: {
            'content-type':'application/json'
           },
-         body:JSON.stringify(newUser)
+          body:JSON.stringify(newUser)
 
-        })
+          })
           .then(res => res.json())
           .then(data => {
-        console.log(data)
-        setUser(result.user)
-        navigate('/');
+            console.log(data)
+            setUser(result.user)
+            navigate('/');
+            toast.success('Successfully Register!')
+           })
+          })
+
+        .catch((error) => {
+          console.log(error)
         })
-        
+
       })
       .catch(error => {
       console.log(error)
