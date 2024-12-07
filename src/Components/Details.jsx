@@ -1,9 +1,43 @@
+
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
+import { useContext } from 'react';
+import Swal from 'sweetalert2';
 
 const Details = () => {
+  const { user } = useContext(AuthContext)
+  const mail = user.email;
   const gameDetails = useLoaderData()
-  const { _id, photo, name, description, rating, year, genres, email, userName } = gameDetails
-  // console.log(_id)
+  const { photo, name, description, rating, year, genres, email, userName } = gameDetails
+  
+
+  const addWishlist = (email) => {
+   
+    console.log(email)
+    
+    const watchList =  { mail, photo, name, description, rating, year, genres, email, userName }
+
+    fetch('http://localhost:4000/watchList', {
+      method: 'POST',
+      headers: {
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(watchList )
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if (data.insertedId) {
+          Swal.fire({
+                title: 'success',
+                text: 'Review added successfully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+          
+          }
+    })
+  }
   return (
       <div className="max-w-md mx-auto mb-20 bg-white rounded-lg shadow-md overflow-hidden">
       {/* Image */}
@@ -44,7 +78,7 @@ const Details = () => {
         </div>
         
         <div className="pt-3">
-          <button className="btn btn-success text-white btn-sm mt-5 w-full">
+          <button onClick={()=>addWishlist()} className="btn btn-success text-white btn-sm mt-5 w-full">
             Add to Watch List</button>
         </div>
       </div>

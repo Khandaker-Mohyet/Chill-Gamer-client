@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader:()=>fetch('http://localhost:4000/gamer')
+        loader:()=>fetch('http://localhost:4000/top-reviews')
       },
       {
         path: "/allReviews",
@@ -48,7 +48,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/gameWatchList",
-        element: <PrivateRoute><GameWatchList></GameWatchList></PrivateRoute>
+        element: <PrivateRoute><GameWatchList></GameWatchList></PrivateRoute>,
+        loader:()=>fetch('http://localhost:4000/watchList')
       },
       {
         path: "/update/:id",

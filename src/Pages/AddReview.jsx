@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const AddReview = () => {
+
+  const { user } = useContext(AuthContext)
 
   const handelAddReview = (e) => {
     e.preventDefault();
@@ -107,13 +111,13 @@ const AddReview = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name='email' placeholder="Your Email" className="input input-bordered" required />
+                            <input type="email" name='email' defaultValue={user.email} readOnly placeholder="Your Email" className="input input-bordered" required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
                                 <span className="label-text">User Name</span>
                             </label>
-                            <input type="text" name='userName' placeholder="Your Name" className="input input-bordered" required />
+                            <input type="text" name='userName' defaultValue={user.displayName} readOnly placeholder="Your Name" className="input input-bordered" required />
                         </div>
                     </div>
 

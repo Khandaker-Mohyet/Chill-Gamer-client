@@ -45,7 +45,7 @@ const MyReviews = () => {
 });
   }
   return (
-    <div>
+    <div className="mb-80">
       <div className="overflow-x-auto w-8/12 mx-auto">
   <table className="table">
     {/* head */}
