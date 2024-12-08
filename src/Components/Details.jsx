@@ -30,7 +30,7 @@ const Details = () => {
         if (data.insertedId) {
           Swal.fire({
                 title: 'success',
-                text: 'Review added successfully',
+                text: 'Add watch list successfully',
                 icon: 'success',
                 confirmButtonText: 'Cool'
               })
