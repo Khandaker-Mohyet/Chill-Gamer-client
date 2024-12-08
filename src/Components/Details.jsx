@@ -17,7 +17,7 @@ const Details = () => {
     
     const watchList =  { mail, photo, name, description, rating, year, genres, email, userName }
 
-    fetch('http://localhost:4000/watchList', {
+    fetch('https://assignment-10-server-dusky.vercel.app/watchList', {
       method: 'POST',
       headers: {
         'content-type':'application/json'

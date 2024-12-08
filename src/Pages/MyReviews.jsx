@@ -25,7 +25,7 @@ const MyReviews = () => {
 }).then((result) => {
   if (result.isConfirmed) {
     
-    fetch(`http://localhost:4000/gamer/${id}`, {
+    fetch(`https://assignment-10-server-dusky.vercel.app/gamer/${id}`, {
       method:'DELETE'
     })
       .then(res => res.json())

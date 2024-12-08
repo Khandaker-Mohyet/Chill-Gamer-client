@@ -23,7 +23,7 @@ const UpdateGamer = () => {
     const updateGamer = { photo, name, description, rating, year, genres, email, userName }
     console.log(updateGamer)
 
-    fetch(`http://localhost:4000/gamer/${_id}`, {
+    fetch(`https://assignment-10-server-dusky.vercel.app/gamer/${_id}`, {
       method: 'PUT',
       headers: {
         'content-type':'application/json'

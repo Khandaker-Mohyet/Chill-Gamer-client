@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const AllCard = ({ game }) => {
-  const {_id, photo, name, rating, genres } = game
+  const {_id, photo, name, rating, genres, year } = game
   return (
     <div className="card bg-base-100 w-[350px] shadow-xl mb-10 mx-auto">
   <figure>
@@ -26,7 +26,8 @@ const AllCard = ({ game }) => {
               defaultChecked />
             <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-300" />
   
-         </div> {rating}</p>
+        </div> {rating}</p>
+        <p className="text-base text-left text-gray-800"><strong>Release Year:</strong> {year}</p>
     <div className="card-actions justify-center">
         <Link to={`/details/${_id}`}>
             <button className="btn btn-success text-white btn-sm mt-5 w-full">Explore Details</button>

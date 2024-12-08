@@ -32,7 +32,7 @@ if (!regex.test(password)) {
         .then(() => {
         const createdAt = result?.user?.metadata?.creationTime;
         const newUser = { name, email, photo, createdAt }
-        fetch('http://localhost:4000/users', {
+        fetch('https://assignment-10-server-dusky.vercel.app/users', {
           method: 'POST',
           headers: {
            'content-type':'application/json'
@@ -51,11 +51,13 @@ if (!regex.test(password)) {
 
         .catch((error) => {
           console.log(error)
+          toast.error("Invalid input")
         })
 
       })
       .catch(error => {
-      console.log(error)
+        console.log(error)
+        toast.error("Invalid input")
     })
   }
   return (

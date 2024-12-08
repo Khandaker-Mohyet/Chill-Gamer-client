@@ -17,7 +17,7 @@ const LogIn = () => {
             const lastSignInTime = result?.user?.metadata?.lastSignInTime;
             const logInInfo = {email, lastSignInTime }
         
-        fetch(`http://localhost:4000/users`, {
+        fetch(`https://assignment-10-server-dusky.vercel.app/users`, {
           method: "PATCH",
           headers: {
            'content-type':'application/json'
@@ -46,7 +46,7 @@ const LogIn = () => {
         const lastSignInTime = result?.user?.metadata?.lastSignInTime;
         const logInInfo = { email, lastSignInTime }
         
-        fetch(`http://localhost:4000/users`, {
+        fetch(`https://assignment-10-server-dusky.vercel.app/users`, {
           method: "PATCH",
           headers: {
            'content-type':'application/json'

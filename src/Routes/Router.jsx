@@ -24,17 +24,17 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader:()=>fetch('http://localhost:4000/top-reviews')
+        loader:()=>fetch('https://assignment-10-server-dusky.vercel.app/top-reviews')
       },
       {
         path: "/allReviews",
         element: <AllReviews></AllReviews>,
-        loader:()=>fetch('http://localhost:4000/gamer')
+        loader:()=>fetch('https://assignment-10-server-dusky.vercel.app/gamer')
       },
       {
         path: "/details/:id",
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:4000/gamer/${params.id}`)
+        loader:({params})=>fetch(`https://assignment-10-server-dusky.vercel.app/gamer/${params.id}`)
       },
       {
         path: "/addReview",
@@ -44,17 +44,17 @@ const router = createBrowserRouter([
       {
         path: "/myReviews",
         element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
-        loader:()=>fetch('http://localhost:4000/gamer')
+        loader:()=>fetch('https://assignment-10-server-dusky.vercel.app/gamer')
       },
       {
         path: "/gameWatchList",
         element: <PrivateRoute><GameWatchList></GameWatchList></PrivateRoute>,
-        loader:()=>fetch('http://localhost:4000/watchList')
+        loader:()=>fetch('https://assignment-10-server-dusky.vercel.app/watchList')
       },
       {
         path: "/update/:id",
         element: <UpdateGamer></UpdateGamer>,
-        loader:({params})=>fetch(`http://localhost:4000/gamer/${params.id}`)
+        loader:({params})=>fetch(`https://assignment-10-server-dusky.vercel.app/gamer/${params.id}`)
       }
       
     ]
