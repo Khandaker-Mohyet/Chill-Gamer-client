@@ -28,6 +28,7 @@ const LogIn = () => {
           .then(data => {
             console.log(data)
             navigate('/');
+            toast.success('Successfully login!')
         })
             })
             .catch(error => console.log('ERROR', error.message))
