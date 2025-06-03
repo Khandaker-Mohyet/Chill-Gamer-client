@@ -55,7 +55,6 @@ const Navbar = () => {
         </ul>
 
       </div>
-      <ThemeToggle></ThemeToggle>
       <div className="navbar-end">
         
         {

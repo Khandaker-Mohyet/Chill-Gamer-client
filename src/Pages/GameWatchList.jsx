@@ -24,7 +24,7 @@ const GameWatchList = () => {
         <th>Name</th>
         <th>Genres</th>
         <th>Rating</th>
-        <th>Auction</th>
+        {/* <th>Auction</th> */}
       </tr>
     </thead>
     <tbody>
